@@ -1,0 +1,45 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #b0c2d6;
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.container a:link {
+        color: black;
+}    
+/* visited link */
+.container a:visited {
+        color: black;
+}
+      
+/* mouse over link */
+.container a:hover {
+        color: rgb(56, 55, 55);
+      }
+      
+/* selected link */
+.container a:active {
+        color: #b0c2d6;
+ }
+ /* container imagem monks*/
+.container img {
+    max-width:150px;
+    max-height:250px;
+    width: auto;
+    height: auto;
+    animation: flutuacao 10s ease-in-out infinite;
+}
+@keyframes flutuacao{
+    0%, 100%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-40px);
+    }
+}
+body {
+    margin: 0px;
+}

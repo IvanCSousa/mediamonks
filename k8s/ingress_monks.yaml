@@ -1,0 +1,22 @@
+#https://kubernetes.io/docs/concepts/services-networking/ingress/
+#ingress resource
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: monks-ns
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # Baseado em NGINX
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" # https://kubernetes.github.io/ingress-nginx/user-guide/tls/ Utilizado para certificação SSL (Exemplo Cert-manager)https://cert-manager.io/docs/tutorials/acme/nginx-ingress/
+spec:
+  rules:
+  - host: "${IP EXTERNO SVC INGRESS CONTROLLER NGIX}.nip.io" #IP HOST que será mapeado pelo Nginx Ingress Controller
+    http:
+      paths:
+      - pathType: Prefix #Baseado em Prefixo
+        path: "/" #Podendo alterar caso tenham mais prefixos, nesse caso simples não é precisso
+        backend:
+          service:
+            name: svc-monks #sevice target
+            port:
+              number: 8080 #porta referenciada no svc

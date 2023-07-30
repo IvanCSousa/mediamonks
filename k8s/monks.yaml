@@ -1,0 +1,68 @@
+#https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+#NameSpace onde serão criado os objetos kubernetes
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monks-ns
+  labels:
+    name: monks-ns
+---
+#https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+#Objeto de Deployment K8S
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: deploy-monks #nome do deploy
+  namespace: monks-ns #mesmo ns criado acima
+spec: #especificações dos pods
+  template:
+    metadata:
+      name: deploy-monks
+      labels:
+        app: deploy-monks
+    spec: #especificações dos containers
+      containers:
+        - name:  pod-monk
+          image: ivancsousa/mediamonks:0.1
+          ports:
+            - containerPort: 3000
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deploy-monks
+---
+#https://kubernetes.io/docs/concepts/services-networking/service/ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-monks
+  namespace: monks-ns
+spec:
+  #type: ClusterIP (não é necessário pois é default)
+  selector:
+    app: deploy-monks 
+  ports:
+    - port: 8080 #porta exposta do svc dentro do cluster
+      targetPort: 3000 # porta alvo do selector
+      
+---
+#https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: monks-hpa
+  namespace: monks-ns
+spec:
+  scaleTargetRef: # quem eu estou escalando, qual é a referencia
+    apiVersion: apps/v1
+    kind: Deployment
+    name: deploy-monks
+  minReplicas: 1 #número minimo de pods
+  maxReplicas: 10 #número máximo de pods
+  metrics: #baseado nos recursos do sistema cpu/memoria/afins
+    - type: Resource
+      resource:  #baseado na utilização 
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80 #uso médio de 80% da cpu

@@ -1,0 +1,3 @@
+#Ignorar os modulos já instalados
+node_modules
+package-lock.json
