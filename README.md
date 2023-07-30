@@ -27,15 +27,17 @@ Esse documento serve como um guia para fazer aplicar do projeto conforme os pass
         https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=pt-br
     
 3. ARQUIVOS TERRAFORM
-    2.1 Inserir o id do projeto no arquivo de variáveis do Terraform
-        obs.: 2.2 O git instalado é um pré-requisito para fazer dowloads dos modulos necessários
-    2.2 No diretório Terraform executar os seguintes comandos
-        2.2.1 terraform init (inicializa o provider e faz dowloads dos modulos)
-        2.2.2 terraform plan (planeja a aplicação dos arquivos terraform)
-        2.2.3terraform aplay (aplicação do projeto terraform no GCP)
+    2.1. Inserir o id do projeto no arquivo de variáveis do Terraform
+        obs.: O git instalado é um pré-requisito para fazer dowloads dos modulos necessários
+   
+    2.2. No diretório Terraform executar os seguintes comandos
+        2.2.1 Inicializa o provider e faz dowloads dos modulos
+               $ terraform init
+        2.2.2 Terraform plan (planeja a aplicação dos arquivos terraform)
+        2.2.3 Terraform aplay (aplicação do projeto terraform no GCP)
         obs.: Espere o processo terminar, isso pode demorar um pouco
 
-4. NO GCP
+5. NO GCP
     3.1 Entrar no Host criado Compute Enginee (nomeado no arquivo Host.tf)
         3.1.1 - No caso testado foi utilizado o Cloud Shell da VM Host
     3.2 Baixar o kubectl no HOST - sudo apt-get install kubectl
@@ -58,7 +60,7 @@ Esse documento serve como um guia para fazer aplicar do projeto conforme os pass
         3.6.3 - Anote o EXTERNAL-IP do Service do monks-ingress-nginx-clontroller  
                 $ kubectl get svc monks-ingress-nginx-clontroller
 
-5. APP
+6. APP
     4.1 Aplicar  os objeto kubernetes - arquivo k8s/monk.yalm - kubectl apply -f monk.yalm
     obs.: Necessário que o arquivo esteja dentro da VM Host
     
@@ -68,10 +70,10 @@ Esse documento serve como um guia para fazer aplicar do projeto conforme os pass
 
     https://cloud.google.com/community/tutorials/nginx-ingress-gke / Deploy an application in Google Kubernetes Engine
 
-6. Acesso/Teste 
+7. Acesso/Teste 
     5.1 Em seu Browser digite o endereço utilizado no Host - ex: "34.122.88.204.nip.io"
 
-7. Deletar projeto
+8. Deletar projeto
     6.1 Utilize o Destroy do Terrafom 
         $ terraform destroy
     obs. Espere o processo terminar, isso pode demorar um pouco
