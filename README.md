@@ -33,8 +33,10 @@ Esse documento serve como um guia para fazer aplicar do projeto conforme os pass
     2.2. No diretório Terraform executar os seguintes comandos
         2.2.1 Inicializa o provider e faz dowloads dos modulos
                $ terraform init
-        2.2.2 Terraform plan (planeja a aplicação dos arquivos terraform)
-        2.2.3 Terraform aplay (aplicação do projeto terraform no GCP)
+        2.2.2 Planejar a aplicação no ambiente terraform
+               $ terraform plan
+        2.2.3 Aplicando o projeto terraform no GCP
+               $ terraform aplay
         obs.: Espere o processo terminar, isso pode demorar um pouco
 
 5. NO GCP
