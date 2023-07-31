@@ -1,6 +1,6 @@
 Esse projeto tem como proposta:
     
-    - Construir um Cluster Privado GKE, com uma VPC Privada e utiliando uma VM como host
+    - Construir um Cluster Privado GKE, com uma VPC Privada e utilizando uma VM como host
     para acessar o cluster de forma segura utilizando Terraform.
     
     - Inserir uma aplicação simples (Hello Word), sendo uma imagem do repositório DockerHub, utilizando 
