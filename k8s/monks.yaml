@@ -23,7 +23,7 @@ spec: #especificações dos pods
     spec: #especificações dos containers
       containers:
         - name:  pod-monk
-          image: ivancsousa/mediamonks:0.1
+          image: ivancsousa/mediamonks:0.12
           ports:
             - containerPort: 3000
   replicas: 2
