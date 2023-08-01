@@ -16,7 +16,9 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
 
         1.3.1 Aplicar a role de Project - edit no SA do Terraform 
         https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build
-        1.3.2 Gerar e aplicar a key.json no diretório do projeto Terraform
+
+     1.3.2 Gerar e aplicar a key.json no diretório do projeto Terraform
+
         1.3.3 Aplicar roles de IAP.tunnel no usuário de usuário 
         https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=pt-br
     
@@ -25,12 +27,16 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
         obs.: O git instalado é um pré-requisito para fazer dowloads dos modulos necessários
    
     2.2. No diretório Terraform executar os seguintes comandos
-        2.2.1 Inicializa o provider e faz dowloads dos modulos
+
+       2.2.1 Inicializa o provider e faz dowloads dos modulos
                $ terraform init
+
         2.2.2 Planejar a aplicação no ambiente terraform
                $ terraform plan
+
         2.2.3 Aplicando o projeto terraform no GCP
                $ terraform aplay
+
         obs.: Espere o processo terminar, isso pode demorar um pouco
 
 5. NO GCP
@@ -63,24 +69,34 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
                 $ kubectl get svc monks-ingress-nginx-clontroller
 
 7. APP
-    4.1 Aplicar  os objeto kubernetes - arquivo k8s/monk.yalm - kubectl apply -f monk.yalm
+   4.1 Aplicar  os objeto kubernetes - arquivo k8s/monk.yalm - kubectl apply -f monk.yalm
+
     obs.: Necessário que o arquivo esteja dentro da VM Host
     
     4.2 Necessário mudar o host do ingress para o endereço EXTERNAL-IP copiado no  item 3.6.3
+
     obs.: utilize o nip.io - ex: "34.122.88.204.nip.io"
+
     4.3 Aplicar o Ingress_monks.yalm - kubectl apply -f ingress_monks.yaml
 
     https://cloud.google.com/community/tutorials/nginx-ingress-gke / Deploy an application in Google Kubernetes Engine
 
-8. Acesso/Teste 
+9. Acesso/Teste 
+
     5.1 Em seu Browser digite o endereço utilizado no Host - ex: "34.122.88.204.nip.io"
 
-9. Deletar projeto
-    6.1 Utilize o Destroy do Terrafom 
+11. Deletar projeto
+
+     6.1 Utilize o Destroy do Terrafom 
+
         $ terraform destroy
+
     obs. Espere o processo terminar, isso pode demorar um pouco
+
     6.2 No GCP 
+
         6.2.1 - Entre no Faturamento e desative o projeto criado em ações
+
         6.2.2 - Entre em IAMe Administração/Configurações e encerre o projeto
 
 
