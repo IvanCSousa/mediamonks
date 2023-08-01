@@ -1,14 +1,8 @@
 Esse projeto tem como proposta:
     
-    - Construir um Cluster Privado GKE, com uma VPC Privada e utilizando uma VM como host
-    para acessar o cluster de forma segura utilizando Terraform.
-    
-    - Inserir uma aplicação simples (Hello Word), sendo uma imagem do repositório DockerHub, utilizando 
-    objetos e serviços k8s.
+Construir utilizando a ferramenta Terraform e recursos do Google Cloud Plataform (GCP), um Cluster Kubernetes Privado (GKE), uma Virtual Private Cloud (VPC) e inserir uma aplicação simples, Hello Monks, inserida no repositório DockerHub, neste Cluster e expor essa aplicação de forma segura utilizando o NGINX ingress controller.
 
-    - Expor essa aplicação de forma segura utilizando o NGINX INGRESS CONTROLLER
-
-Esse documento serve como um guia para fazer aplicar do projeto conforme os passos a seguir
+Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um ambiente próprio
 
 1. No GCP
     1.1 - Criar projeto 
