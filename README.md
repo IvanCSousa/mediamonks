@@ -34,17 +34,23 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
         obs.: Espere o processo terminar, isso pode demorar um pouco
 
 5. NO GCP
+
     3.1 Entrar no Host criado Compute Enginee (nomeado no arquivo Host.tf)
-        3.1.1 - No caso testado foi utilizado o Cloud Shell da VM Host
+
+    3.1.1 - No caso testado foi utilizado o Cloud Shell da VM Host
+
     3.2 Baixar o kubectl no HOST - sudo apt-get install kubectl
+
     3.3 Fazer a autetificação - gcloud auth login
+
     3.4 Caso necessário aplicar o SDK GKE - sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+
     3.5 Fazer o Tunelamento/Jump para o Cluster GKE - "ex: gcloud container clusters get-credentials monks-cluster --zone us-central1-c --project monksproject"
 
-
     3.6 NGINX ingress Controlle
+
         3.6.1 Instalar o HELM na VM
-            $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+           $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
             $ chmod 700 get_helm.sh
             $ ./get_helm.sh
 
@@ -56,7 +62,7 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
         3.6.3 - Anote o EXTERNAL-IP do Service do monks-ingress-nginx-clontroller  
                 $ kubectl get svc monks-ingress-nginx-clontroller
 
-6. APP
+7. APP
     4.1 Aplicar  os objeto kubernetes - arquivo k8s/monk.yalm - kubectl apply -f monk.yalm
     obs.: Necessário que o arquivo esteja dentro da VM Host
     
@@ -66,10 +72,10 @@ Esse seção tem como objetivo ser um guia de como reproduzir o projeto em um am
 
     https://cloud.google.com/community/tutorials/nginx-ingress-gke / Deploy an application in Google Kubernetes Engine
 
-7. Acesso/Teste 
+8. Acesso/Teste 
     5.1 Em seu Browser digite o endereço utilizado no Host - ex: "34.122.88.204.nip.io"
 
-8. Deletar projeto
+9. Deletar projeto
     6.1 Utilize o Destroy do Terrafom 
         $ terraform destroy
     obs. Espere o processo terminar, isso pode demorar um pouco
