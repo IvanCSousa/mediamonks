@@ -41,40 +41,40 @@ Esta seção tem como objetivo ser um guia de como reproduzir o projeto em um am
 
 5. NO GCP
 
-    3.1 Entre na instância Host criado no Compute Enginee (nomeado no arquivo host.tf)
+        3.1 Entre na instância Host criado no Compute Enginee (nomeado no arquivo host.tf)
 
-    3.1.1 - Utilizado o Cloud Shell da VM Host
+        3.1.1 - Utilizado o Cloud Shell da VM Host
 
-    3.2 Baixe o kubectl no HOST
-       $ sudo apt-get install kubectl
+        3.2 Baixe o kubectl no HOST
+           $ sudo apt-get install kubectl
 
-    3.3 Faça a autetificação da VM
-       $ gcloud auth login
+        3.3 Faça a autetificação da VM
+           $ gcloud auth login
 
-    3.4 Caso necessário aplique o SDK GKE Auth
-    $ sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+        3.4 Caso necessário aplique o SDK GKE Auth
+        $ sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
 
-    3.5 Faça o Tunelamento/Jump para o Cluster GKE -
-   ex: $gcloud container clusters get-credentials monks-cluster --zone us-central1-c --project monksproject
+        3.5 Faça o Tunelamento/Jump para o Cluster GKE -
+       ex: $gcloud container clusters get-credentials monks-cluster --zone us-central1-c --project monksproject
 
-    3.6 NGINX ingress Controlle
+        3.6 NGINX ingress Controlle
 
-        3.6.1 Instale o HELM na VM
+            3.6.1 Instale o HELM na VM
                $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
                $ chmod 700 get_helm.sh
-               $ ./get_helm.sh
+                $ ./get_helm.sh
 
-        3.6.2 Adicione o Charts do Ingress Nginx Controller no repositório e instale os objetos Kubernetes 
-                $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-                $ helm repo update
+            3.6.2 Adicione o Charts do Ingress Nginx Controller no repositório e instale os objetos Kubernetes 
+               $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+               $ helm repo update
                 $ helm install monks ingress-nginx/ingress-nginx
             
-        3.6.3 - Anote o EXTERNAL-IP do Service do monks-ingress-nginx-clontroller  
+            3.6.3 - Anote o EXTERNAL-IP do Service do monks-ingress-nginx-clontroller  
                 $ kubectl get svc
    
 7. APP
-       4.1 Aplique os objeto kubernetes do diretório k8s arquivo monk.yalm
-           $ kubectl apply -f monk.yalm
+           4.1 Aplique os objeto kubernetes do diretório k8s arquivo monk.yalm
+               $ kubectl apply -f monk.yalm
 
         obs.: Necessário que o arquivo esteja dentro da VM Host
     
