@@ -1,0 +1,9 @@
+name: pipeline
+run-name: ${{github.actor}}
+on: 
+    workflow_dispatch: 
+jobs:
+  Build:
+    runs-on: runner-terra-dind
+    steps:
+      - run: uname -a
