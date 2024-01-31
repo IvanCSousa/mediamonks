@@ -4,6 +4,6 @@ on:
     workflow_dispatch: 
 jobs:
   Build:
-    runs-on: runner-terra-dind
+    runs-on: ubuntu-latest
     steps:
       - run: uname -a
