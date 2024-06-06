@@ -4,20 +4,12 @@ Construir utilizando a ferramenta Terraform e recursos do Google Cloud Plataform
 
 Esta seção tem como objetivo ser um guia de como reproduzir o projeto em um ambiente próprio
 
-## DEPLOY
 
-### 1.  **renomear os arquivos para .env**
-
-1. Renomei os arquivos env nos diretórios frontend e backend:
+## 1. No GCP
+ 1.1 - Crie um projeto 
     ```bash
-    mv ./frontend/env ./frontend/.env
-    mv ./backend/env ./backend/.env
-
-
-### 1. No GCP
-    1.1 - Crie um projeto 
-    ```bash
-    https://cloud.google.com/appengine/docs/standard/python3/building-app/creating-gcp-project?hl=pt-br´´´
+    https://cloud.google.com/appengine/docs/standard/python3/building-app/creating-gcp-project?hl=pt-br
+    
     1.2 Ative as APIs Kubernetes Engine(GKE), Compute Enginee (CE) e Identity-Aware Proxy (IAP)
         https://cloud.google.com/apis/docs/overview?hl=pt-br
 
